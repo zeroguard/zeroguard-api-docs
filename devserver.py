@@ -13,6 +13,7 @@ import sys
 from livereload import Server, shell
 
 MAKEFILE_PATH = './Makefile'
+WATCHED_PATTERNS = ['conf.py', '**/*.rst']
 
 DOCKER_PORT_RE = re.compile(r'.+-p\s\d+:(\d+).*')
 SPHINX_SOURCE_DIR_RE = re.compile(r'^SPHINX_SOURCE_DIR\s:?=\s(.+)')
@@ -101,10 +102,11 @@ def main():
     # Initialize livereload server and watch Sphinx documentation changes
     server = Server()
 
-    server.watch(
-        os.path.join(sphinx_source_dir, '*.rst'),
-        shell('make docs')
-    )
+    for pattern in WATCHED_PATTERNS:
+        server.watch(
+            os.path.join(sphinx_source_dir, pattern),
+            shell('make docs')
+        )
 
     server.serve(
         host='0.0.0.0',

@@ -49,10 +49,14 @@ exclude_patterns = [
 html_theme = 'alabaster'
 html_theme_path = ['.']
 html_theme_options = {
+    'description': (
+        'ZeroGuard Recon threat intelligence platform public API documentation'
+    ),
     'github_user': 'zeroguard',
     'github_repo': 'zeroguard-api-docs',
-    'github_banner': True,
+    'github_banner': False,
     'github_button': True,
+    'logo': 'logo.jpg',
     'show_powered_by': False,
     'show_relbars': True
 }

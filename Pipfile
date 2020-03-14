@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 livereload = "*"
+rstcheck = "*"
 sphinx = "*"
 sphinxcontrib-httpdomain = "*"
 sphinxcontrib-httpexample = "*"
