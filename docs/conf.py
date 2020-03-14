@@ -13,9 +13,13 @@ from datetime import datetime
 ###############################################################################
 project = 'Zeroguard Recon API'
 release = '0.0.1-dev.1'
-
 author = 'ZeroGuard'
 copyright = '%s ZeroGuard Ltd' % datetime.now().year
+
+# Variables that will be used across multiple documentation pages
+# TODO: This is not used at the moment. See a relevant issue:
+# https://github.com/zeroguard/zeroguard-api-docs/issues/1
+api_version = 'v1'
 
 ###############################################################################
 # General configuration
@@ -27,6 +31,8 @@ master_doc = "index"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinxcontrib.httpdomain',
+    'sphinxcontrib.httpexample'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -70,3 +76,5 @@ html_show_sphinx = False
 ###############################################################################
 # Extensions configuration
 ###############################################################################
+# sphinxcontrib-httpexample settings
+httpexample_scheme = 'https'

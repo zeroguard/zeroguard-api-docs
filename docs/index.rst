@@ -14,7 +14,7 @@ is a table of contents that should help you get started in no time.
 
     The documentation is still very much work in progress. Please do not
     attempt to implement any API clients until this warning disappears. Current
-    API structure is by no means set is stone and may change without a further
+    API structure is by no means set in stone and may change without a further
     notice.
 
 .. note::
