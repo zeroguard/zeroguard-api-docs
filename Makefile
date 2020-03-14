@@ -18,7 +18,6 @@ PIPENV_CMD_RUN := pipenv run
 SPHINX_SOURCE_DIR := ./docs
 SPHINX_BUILD_DIR := $(SPHINX_SOURCE_DIR)/_build
 SPHINX_CMD_BUILD := $(PIPENV_CMD_RUN) sphinx-build
-SPHINX_CMD_DEVSERV := $(PIPENV_CMD_RUN) sphinx-autobuild
 
 ###############################################################################
 # Host targets
@@ -61,7 +60,7 @@ init:
 
 .PHONY: dev
 dev:
-	$(SPHINX_CMD_DEVSERV) -H 0.0.0.0 $(SPHINX_SOURCE_DIR) $(SPHINX_BUILD_DIR)
+	$(PIPENV_CMD_RUN) ./devserver.py
 
 .PHONY: docs
 docs:
