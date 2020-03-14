@@ -11,7 +11,7 @@ from datetime import datetime
 ###############################################################################
 # Project information
 ###############################################################################
-project = 'Zeroguard Recon platform public API documentation'
+project = 'Zeroguard Recon API'
 release = '0.0.1-dev.1'
 
 author = 'ZeroGuard'

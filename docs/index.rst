@@ -1,2 +1,2 @@
-ZeroGuard Recon Platform Public API
-===================================
+ZeroGuard Recon Public API
+==========================
