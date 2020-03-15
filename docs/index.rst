@@ -41,3 +41,9 @@ is a table of contents that should help you get started in no time.
     :glob:
 
     endpoints/*
+
+.. toctree::
+    :caption: About
+
+    changelog
+    roadmap

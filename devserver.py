@@ -13,7 +13,7 @@ import sys
 from livereload import Server, shell
 
 MAKEFILE_PATH = './Makefile'
-WATCHED_PATTERNS = ['conf.py', '**/*.rst']
+WATCHED_PATTERNS = ['conf.py', '*.rst', '**/*.rst', '../CHANGELOG.md']
 
 DOCKER_PORT_RE = re.compile(r'.+-p\s\d+:(\d+).*')
 SPHINX_SOURCE_DIR_RE = re.compile(r'^SPHINX_SOURCE_DIR\s:?=\s(.+)')
