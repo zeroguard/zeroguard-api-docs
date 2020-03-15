@@ -14,10 +14,17 @@ DOCKER_TAG := $(DOCKER_PROJECT)/$(DOCKER_IMAGE):$(DOCKER_VERSION)
 DOCKER_RUN_OPTS := -it --rm -v `pwd`:/app -p 8000:8000
 
 PIPENV_CMD_RUN := pipenv run
+PIPENV_VENV := $(shell pipenv --venv)
 
 SPHINX_SOURCE_DIR := ./docs
 SPHINX_BUILD_DIR := $(SPHINX_SOURCE_DIR)/_build
 SPHINX_CMD_BUILD := $(PIPENV_CMD_RUN) sphinx-build
+
+# Due to some limitations of ReadTheDocs we need to manually copy static files
+# of sphinxcontrib-httpexample plugin to a project static directory on each
+# dependencies installation. See a relevant issue for more information:
+# https://github.com/collective/sphinxcontrib-httpexample/issues/28
+HTTPEX_STATIC := lib/python*/site-packages/sphinxcontrib/httpexample/static
 
 ###############################################################################
 # Host targets
@@ -57,12 +64,17 @@ dshell: dbuild
 init:
 	pip3 install pipenv --upgrade
 	pipenv install --dev
-	pipenv lock --requirements > requirements.txt
+	$(MAKE) $(SUBMAKE_OPTS) fixrtd
 
 .PHONY: update
 update:
 	pipenv update --dev
+	$(MAKE) $(SUBMAKE_OPTS) fixrtd
+
+.PHONY: fixrtd
+fixrtd:
 	pipenv lock --requirements > requirements.txt
+	cp $(PIPENV_VENV)/$(HTTPEX_STATIC)/* $(SPHINX_SOURCE_DIR)/_static
 
 .PHONY: dev
 dev:
