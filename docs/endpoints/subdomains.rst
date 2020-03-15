@@ -1,6 +1,13 @@
 =================
 Search Subdomains
 =================
+This endpoint allows to search for subdomains of a given domain. Search results
+will not only include subdomains but also all related to them objects (i.e.
+`IP addresses <https://en.wikipedia.org/wiki/IP_address>`_,
+`ASNs <https://en.wikipedia.org/wiki/Autonomous_system_(Internet)>`_,
+`RIRs <https://en.wikipedia.org/wiki/Regional_Internet_registry>`_).
+
+.. include:: _shared/concepts-note.rst
 
 ------
 Schema
@@ -8,7 +15,7 @@ Schema
 
 .. http:post:: /v1/subdomains/(str:domain)
 
-    Search for all seen subdomains of `domain`.
+    Search for all seen subdomains and related objects for `domain`.
 
     :param str domain: Domain which subdomains to return.
 
@@ -17,10 +24,18 @@ Schema
                             values. Default is to return all existing fields.
 
     :statuscode 200: Subdomains search was successfull.
-    :statuscode 404: Subdomains search returned no results.
+    :statuscode 204: Subdomains search was performed successfully but yielded
+                     no results.
+    :statuscode 400: Bad request. See :doc:`../concepts/errors` for a general
+                     structure of an error response and :ref:`error-context`
+                     for details on how error context is structured for this
+                     endpoint.
     :statuscode 429: API rate limit was exceeded. See
                      :doc:`../concepts/rate-limits` for more information on
                      how to gracefully handle API quota.
+    :statuscode 500: Internal server error. This is most probably a bug. See
+                     :doc:`../about/bugs` for more information about how to
+                     report bugs and security vulnerabilities.
 
 **Minimal Example**:
 
@@ -49,3 +64,9 @@ Schema
 ------
 Fields
 ------
+
+.. _error-context:
+
+-------------
+Error Context
+-------------

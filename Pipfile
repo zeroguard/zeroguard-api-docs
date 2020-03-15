@@ -9,5 +9,6 @@ rstcheck = "*"
 
 [packages]
 sphinx = "*"
+sphinx-jsondomain = "*"
 sphinxcontrib-httpdomain = "*"
 sphinxcontrib-httpexample = "*"

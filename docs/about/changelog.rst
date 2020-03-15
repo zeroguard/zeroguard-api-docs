@@ -6,4 +6,4 @@ Changelog
     changes to a documentation. Not every version of documentation indicates
     changes in the public API.
 
-.. include:: ../CHANGELOG.md
+.. include:: ../../CHANGELOG.md

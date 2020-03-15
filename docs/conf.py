@@ -20,6 +20,15 @@ copyright = '%s ZeroGuard Ltd' % datetime.now().year
 # TODO: This is not used at the moment. See a relevant issue:
 # https://github.com/zeroguard/zeroguard-api-docs/issues/1
 api_version = 'v1'
+api_host = 'api.zeroguard.com'
+
+rst_prolog = """
+.. |api_version| replace:: {}
+.. |api_host| replace:: {}
+""".format(
+    api_version,
+    api_host
+)
 
 ###############################################################################
 # General configuration
@@ -32,7 +41,8 @@ master_doc = "index"
 # ones.
 extensions = [
     'sphinxcontrib.httpdomain',
-    'sphinxcontrib.httpexample'
+    'sphinxcontrib.httpexample',
+    'sphinxjsondomain'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
