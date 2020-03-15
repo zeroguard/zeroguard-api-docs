@@ -28,16 +28,16 @@ is a table of contents that should help you get started in no time.
     :caption: Introduction
     :glob:
 
-    introduction_section/*
+    introduction/*
 
 .. toctree::
     :caption: General Concepts
     :glob:
 
-    general_concepts_section/*
+    concepts/*
 
 .. toctree::
     :caption: Endpoints
     :glob:
 
-    api_endpoints_section/*
+    endpoints/*

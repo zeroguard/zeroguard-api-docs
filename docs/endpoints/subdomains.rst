@@ -1,6 +1,11 @@
 =================
 Search Subdomains
 =================
+
+------
+Schema
+------
+
 .. http:post:: /v1/subdomains/(str:domain)
 
     Search for all seen subdomains of `domain`.
@@ -8,14 +13,14 @@ Search Subdomains
     :param str domain: Domain which subdomains to return.
 
     :jsonparam list fields: List of fields to return. See
-                            :ref:`available-fields` for a list of acceptable
+                            :ref:`fields` for a list of acceptable
                             values. Default is to return all existing fields.
 
     :statuscode 200: Subdomains search was successfull.
     :statuscode 404: Subdomains search returned no results.
     :statuscode 429: API rate limit was exceeded. See
-                     :doc:`../general_concepts_section/rate_limits` for more
-                     information on how to gracefully handle API quota.
+                     :doc:`../concepts/rate-limits` for more information on
+                     how to gracefully handle API quota.
 
 **Minimal Example**:
 
@@ -39,8 +44,8 @@ Search Subdomains
     Host: api.zeroguard.com
     Accept: application/json
 
-.. _available-fields:
+.. _fields:
 
-------------
-Valid Fields
-------------
+------
+Fields
+------
