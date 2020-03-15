@@ -21,13 +21,13 @@ function install_pipenv_dependencies {
     # Dependencies were never installed (or deleted manually)
     if ! test -d "${PIPENV_HOME}"; then
         echo "${LOG_PREF_INFO}Installing application dependencies"
-        pipenv install --dev
+        make init
 
     # Changes detected in application dependencies
     elif ! test "${curr_md5}" == "$(cat "${PIPENV_MD5}" 2> /dev/null)"; then
         echo "${LOG_PREF_INFO}Updating application dependencies"
 
-        pipenv update --dev
+        make update
         echo "${curr_md5}" > "${PIPENV_MD5}"
 
     # All good and no updates necessary

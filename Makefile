@@ -57,6 +57,12 @@ dshell: dbuild
 init:
 	pip3 install pipenv --upgrade
 	pipenv install --dev
+	pipenv lock --requirements > requirements.txt
+
+.PHONY: update
+update:
+	pipenv update --dev
+	pipenv lock --requirements > requirements.txt
 
 .PHONY: dev
 dev:
