@@ -10,5 +10,7 @@ rstcheck = "*"
 [packages]
 sphinx = "*"
 sphinx-jsondomain = "*"
+sphinx-notfound-page = "*"
+sphinx_rtd_theme = "*"
 sphinxcontrib-httpdomain = "*"
 sphinxcontrib-httpexample = "*"

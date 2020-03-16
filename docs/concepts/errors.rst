@@ -42,7 +42,7 @@ Example:
             "error_description": "Invalid request parameter was specified",
             "error_context": {
                 "received_parameter_name": "foo",
-                "excpected_parameter_names": [
+                "expected_parameter_names": [
                     "bar",
                     "baz"
                 ]
