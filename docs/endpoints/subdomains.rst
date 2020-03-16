@@ -17,11 +17,45 @@ Schema
 
     Search for all seen subdomains and related objects for `domain`.
 
+    All JSON parameters are prefixed with **<ip_version>** which determines
+    a version of IP addresses on which a given JSON parameter acts on. This
+    can be one of the following: **ipv4**, **ipv6**, **ip** (both versions).
+    More specific version always prevails meaning that below parameters
+
+    .. sourcecode:: json
+
+        {
+            "ipv4.history": true,
+            "ip.history": false
+        }
+
+    are resolved as
+
+    .. sourcecode:: json
+
+        {
+            "ipv4.history": true,
+            "ipv6.history": false
+        }
+
+
     :param str domain: Domain which subdomains to return.
 
-    :jsonparam list fields: List of fields to return. See
-                            :ref:`fields` for a list of acceptable
-                            values. Default is to return all existing fields.
+    :jsonparam bool <ip_version>.history: Return a list of IP addresses to
+                                          which a found subdomain pointed in
+                                          the past. Default is *false*.
+
+    :jsonparam bool <ip_version>.latest:  Return the latest found IP address
+                                          for each found subdomain. Default is
+                                          *true*.
+
+    :jsonparam bool <ip_version>.oldest:  Return the oldest found IP address
+                                          for each found subdomain. Default is
+                                          *false*.
+
+    :jsonparam bool <ip_version>.live:    Perform a live DNS query and return
+                                          its results
+    :jsonparam bool <ip_version>.meta: 
 
     :statuscode 200: Subdomains search was successfull.
     :statuscode 204: Subdomains search was performed successfully but yielded
@@ -58,12 +92,6 @@ Schema
     POST /v1/subdomains/complex?fields=foo,bar,baz HTTP/1.1
     Host: api.zeroguard.com
     Accept: application/json
-
-.. _fields:
-
-------
-Fields
-------
 
 .. _error-context:
 
