@@ -26,24 +26,28 @@ is a table of contents that should help you get started in no time.
 
 .. toctree::
     :caption: Introduction
+    :maxdepth: 1
     :glob:
 
     introduction/*
 
 .. toctree::
     :caption: General Concepts
+    :maxdepth: 1
     :glob:
 
     concepts/*
 
 .. toctree::
     :caption: Endpoints
+    :maxdepth: 1
     :glob:
 
     endpoints/*
 
 .. toctree::
     :caption: About
+    :maxdepth: 1
     :glob:
 
     about/*

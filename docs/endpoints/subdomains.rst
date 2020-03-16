@@ -54,8 +54,12 @@ Schema
                                           *false*.
 
     :jsonparam bool <ip_version>.live:    Perform a live DNS query and return
-                                          its results
-    :jsonparam bool <ip_version>.meta: 
+                                          its results for each found subdomain.
+                                          Default is *false*.
+
+    :jsonparam bool <ip_version>.meta:    Return extra information about IP
+                                          addresses related to each found
+                                          subdomain. Default is *true*.
 
     :statuscode 200: Subdomains search was successfull.
     :statuscode 204: Subdomains search was performed successfully but yielded
@@ -73,6 +77,10 @@ Schema
 
 **Minimal Example**:
 
+.. todo::
+
+    Fully document a complex request example for `/v1/subdomains` endpoint
+
 .. http:example:: curl wget python-requests
 
     POST /v1/subdomains/google.com HTTP/1.1
@@ -87,6 +95,10 @@ Schema
 
 **Complex Example**:
 
+.. todo::
+
+    Fully document a complex request example for `/v1/subdomains` endpoint
+
 .. http:example:: curl wget python-requests
 
     POST /v1/subdomains/complex?fields=foo,bar,baz HTTP/1.1
@@ -96,5 +108,18 @@ Schema
 .. _error-context:
 
 -------------
+Response Data
+-------------
+
+.. todo::
+
+    Fully document a response data object structure for `/v1/subdomains`
+    endpoint
+
+-------------
 Error Context
 -------------
+
+.. todo::
+
+    Document error context for `/v1/subdomains` endpoint

@@ -11,4 +11,8 @@ disclosure see :ref:`security-policy` section.
 Security Policy
 ---------------
 
+.. todo::
+
+    Fill out security policy file
+
 .. include:: ../../SECURITY.md

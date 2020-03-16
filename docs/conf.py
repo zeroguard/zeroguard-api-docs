@@ -44,6 +44,7 @@ extensions = [
     'sphinxcontrib.httpdomain',
     'sphinxcontrib.httpexample',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
     'sphinxjsondomain',
     'sphinx_rtd_theme'
 ]
@@ -103,3 +104,7 @@ intersphinx_mapping = {
 ###############################################################################
 # sphinxcontrib-httpexample settings
 httpexample_scheme = 'https'
+
+# sphinx.ext.todo settings
+todo_include_todos = True
+todo_emit_warnings = True

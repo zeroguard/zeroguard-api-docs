@@ -32,7 +32,9 @@ Structure
                                     Object structure is defined individually
                                     for each API endpoint.
 
-Example:
+--------
+Examples
+--------
 
 .. sourcecode:: json
 
