@@ -8,7 +8,7 @@ logs, WHOIS, IP reputation and much more.
 
 This is the main page of ZeroGuard Recon public API documentation which is
 aimed at providing a detailed and structured reference for all API users. Below
-is a table of contents that should help you get started in no time.
+is a table of contents that should help you to get started in no time.
 
 .. warning::
 

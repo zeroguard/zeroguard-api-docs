@@ -26,6 +26,9 @@ Structure
     :property object data:  Results of a performed query (request). Always
                             present.
 
+    :proptype query: :json:object:`Query Object`
+    :proptype data:  :json:object:`Data Object`
+
 .. json:object:: Query Object
 
     Structure of a query object.

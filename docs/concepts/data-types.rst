@@ -1,10 +1,12 @@
 ==========
 Data Types
 ==========
+Data types represent all different entities that can be referenced (see
+:doc:`references` for details) in the API response object. Each data
+type may contain different data fields but they all have the same
+:ref:`general-structure`.
 
-.. todo::
-
-    Add an introduction to a data types documentation page
+.. _general-structure:
 
 -----------------
 General Structure
@@ -12,7 +14,7 @@ General Structure
 
 .. json:object:: Data Object
 
-    General structure of a data object.
+    General structure of a data object for all data types.
 
     :property string type: Type of a data object. Always present.
     :property object data: Object that contains the actual data fields of this
@@ -33,16 +35,6 @@ Minimal example:
 Types
 -----
 
-.. _domain-data-type:
-
-^^^^^^
-Domain
-^^^^^^
-
-.. todo::
-
-    Document Domain data type
-
 .. _ipv4-data-type:
 
 ^^^^^^^^^^^^
@@ -55,7 +47,9 @@ IPv4 address. Type field value: :code:`ipv4`.
 
     Data object of IPv4 data type.
 
-    :property string address: IPv4 address. Always present.
+    :property string address:  IPv4 address. Always present.
+    :property list reputation: List of reputation feed names in which this IP
+                               address was observed throughout its lifespan.
 
 Example:
 
@@ -64,7 +58,19 @@ Example:
     {
         "type": "ipv4",
         "data": {
-            "address": "8.8.8.8"
+            "address": "8.8.8.8",
+            "reputation": [
+                "firehol-coinbl-hosts",
+                "firehol-dshield-top-1000",
+                "firehol-firehol-abusers",
+                "firehol-firehol-level3",
+                "firehol-hphosts-ats",
+                "firehol-hphosts-emd",
+                "firehol-hphosts-fsa",
+                "firehol-hphosts-psh",
+                "firehol-packetmail-emerging-ips",
+                "firehol-stopforumspam"
+            ]
         }
     }
 
@@ -89,7 +95,17 @@ Example:
     {
         "type": "ipv6",
         "data": {
-            "address": "2001:db8:85a3::8a2e:370:7334"
+            "address": "2001:4860:4860::8888",
+            "reputation": [
+                "firehol-coinbl-hosts",
+                "firehol-dshield-top-1000",
+                "firehol-firehol-abusers",
+                "firehol-firehol-level3",
+                "firehol-hphosts-ats",
+                "firehol-hphosts-emd",
+                "firehol-hphosts-psh",
+                "firehol-packetmail-emerging-ips"
+            ]
         }
     }
 
