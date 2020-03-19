@@ -62,12 +62,12 @@ Schema
                                           subdomain. Default is *true*.
 
     :statuscode 200: Subdomains search was successfull.
-    :statuscode 204: Subdomains search was performed successfully but yielded
-                     no results.
-    :statuscode 400: Bad request. See :doc:`../concepts/errors` for a general
+    :statuscode 400: Bad request. XXXXXXXFIXME See :doc:`../concepts/errors` for a general
                      structure of an error response and :ref:`error-context`
                      for details on how error context is structured for this
                      endpoint.
+    :statuscode 404: Subdomains search was performed successfully but yielded
+                     no results. 
     :statuscode 429: API rate limit was exceeded. See
                      :doc:`../concepts/rate-limits` for more information on
                      how to gracefully handle API quota.

@@ -72,13 +72,14 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_path = ['.']
 html_theme_options = {
     'collapse_navigation': False,
-    'navigation_depth': 2
+    'navigation_depth': 3
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_favicon = 'favicon.png'
 
 # Custom JavaScript goes here
 html_js_files = [
@@ -94,10 +95,6 @@ html_css_files = [
 intersphinx_mapping = {
     'python-requests': ('https://requests.readthedocs.io/en/master/', None)
 }
-
-# FIXME: Current logo looks horrible so it is disabled. We do need to add
-# something prettier at some point though.
-#html_logo = 'logo.jpg'
 
 ###############################################################################
 # Extensions configuration
