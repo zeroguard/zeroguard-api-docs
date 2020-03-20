@@ -33,6 +33,8 @@ Structure
 
     Structure of a query object.
 
+    :property string action: 
+
 .. todo::
 
     Fill out response body query object structure
