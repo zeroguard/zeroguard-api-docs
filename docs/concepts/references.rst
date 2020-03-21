@@ -10,6 +10,9 @@ Due to a highly nested and interconnected nature of the data provided by the
 API, there is a need to avoid data duplication and deep nesting in a response
 object structure. API utilizes object references to achieve that.
 
+It is said that JSON object references another object if and only if it
+contains :code:`_ref` field.
+
 The easiest way to understand how references work is to explain how they are
 generated:
 

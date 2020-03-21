@@ -21,20 +21,30 @@ IPv4 Address
 
     :property string address:     IPv4 address. Always present.
 
-    :property int closest_prefix: A `reference <references.html>`_ to the
-                                  smallest :ref:`network-prefix-data-type`
+    :property obj closest_prefix: A reference to the smallest network prefix
                                   which contains this IP address. Always
                                   present.
 
-    :property list prefixes:      A list of `references <references.html>`_
-                                  to multiple :ref:`network-prefix-data-type`
-                                  instances which together represent a full
-                                  prefix chain for this IP.
+    :property list prefixes:      A list of references to multiple
+                                  network prefixes which together represent a
+                                  full prefix chain for this IP (from the
+                                  smallest to 0.0.0.0/0). Always present.
 
-    :property list reputation:    List of :json:object:`IP Reputation Entry`
-                                  instances containing information from
-                                  reputation feeds in which this IP address
-                                  was observed throughout its lifespan.
+    :property list reputation:    List of IP reputation entries containing
+                                  information from reputation feeds in which
+                                  this IP address was observed throughout its
+                                  lifespan. Always present.
+
+    :proptype closest_prefix: :json:object:`Prefix Reference`
+    :proptype prefixes:       *list of* :json:object:`Prefix Reference`
+    :proptype reputation:     *list of* :json:object:`IP Reputation Entry`
+
+.. json:object:: Prefix Reference
+
+    A `reference <references.html>`_ to :ref:`network-prefix-data-type`
+    which contains an IP address.
+
+    :property int _ref: Reference number. Always present.
 
 .. json:object:: IP Reputation Entry
 
@@ -56,6 +66,11 @@ IPv4 Address
     :property int last_seen: Unix timestamp of when this entry was last
                              observed. Always present.
 
+.. todo::
+
+    Replace IPv4 address data type example with an actual output from the API.
+    Currently it is a stub.
+
 Example of :json:object:`IPv4 Address` data type instance (truncated for
 clarity):
 
@@ -64,6 +79,12 @@ clarity):
     {
         "type": "ipv4",
         "address": "8.8.8.8",
+        "closest_prefix": {"_ref": 1},
+        "prefixes": [
+            {"_ref": 1},
+            {"_ref": 3},
+            {"_ref": 4}
+        ],
         "reputation": [
             {
                 "name": "firehol-coinbl-hosts",
@@ -87,33 +108,69 @@ clarity):
 IPv6 Address
 ------------
 
-IPv6 address. Type field value: :code:`ipv6`.
+IPv6 address. Structure is near identical to :json:object:`IPv4 Address` thus a
+lot of nested object definitions are re-used.
 
-.. json:object:: IPv6 Data
+.. json:object:: IPv6 Address
 
-    Data object of IPv6 data type.
+    IPv6 address.
 
-    :property string address: IPv6 address. Always present.
+    :property string type:        Type definition. Always present and has a
+                                  value of :code:`ipv6`.
 
-Example:
+    :property string address:     IPv6 address. Always present.
+
+    :property obj closest_prefix: A reference to the smallest network prefix
+                                  which contains this IP address. Always
+                                  present.
+
+    :property list prefixes:      A list of references to multiple
+                                  network prefixes which together represent a
+                                  full prefix chain for this IP (from the
+                                  smallest to 0.0.0.0/0). Always present.
+
+    :property list reputation:    List of IP reputation entries containing
+                                  information from reputation feeds in which
+                                  this IP address was observed throughout its
+                                  lifespan. Always present.
+
+    :proptype closest_prefix: :json:object:`Prefix Reference`
+    :proptype prefixes:       *list of* :json:object:`Prefix Reference`
+    :proptype reputation:     *list of* :json:object:`IP Reputation Entry`
+
+.. todo::
+
+    Replace IPv6 address data type example with an actual output from the API.
+    Currently it is a stub.
+
+Example (truncated for clarity):
 
 .. sourcecode:: json
 
     {
         "type": "ipv6",
-        "data": {
-            "address": "2001:4860:4860::8888",
-            "reputation": [
-                "firehol-coinbl-hosts",
-                "firehol-dshield-top-1000",
-                "firehol-firehol-abusers",
-                "firehol-firehol-level3",
-                "firehol-hphosts-ats",
-                "firehol-hphosts-emd",
-                "firehol-hphosts-psh",
-                "firehol-packetmail-emerging-ips"
-            ]
-        }
+        "address": "2001:4860:4860::8888",
+        "closest_prefix": {"_ref": 3},
+        "prefixes": [
+            {"_ref": 3},
+            {"_ref": 4},
+            {"_ref": 12}
+        ],
+        "reputation": [
+            {
+                "name": "firehol-coinbl-hosts",
+                "current": false,
+                "first_seen": 1584712048,
+                "last_seen": 1584720037
+
+            },
+            {
+                "name": "firehol-dshield-top-1000",
+                "current": true,
+                "first_seen": 1584714021,
+                "last_seen": 1584720037
+            }
+        ]
     }
 
 .. _network-prefix-data-type:
@@ -122,7 +179,27 @@ Example:
 Network Prefix
 --------------
 
+.. todo::
+
+    Replace Network Prefix data type stub with an actual definition
+
 .. json:object:: Network Prefix
+
+    Network prefix.
+
+    :property string type:   Type definition. Always present and has a value of
+                             :code:`netpref`.
+
+    :property string prefix: Actual value of a network prefix.
+
+Example:
+
+.. sourcecode:: json
+
+    {
+        "type": "netpref",
+        "prefix": "0.0.0.0/0"
+    }
 
 .. _subdomain-data-type:
 
@@ -130,12 +207,12 @@ Network Prefix
 Subdomain
 ---------
 
-Internet subdomain. Type field value: :code:`subdomain`.
+.. json:object:: Subdomain
 
-.. json:object:: Subdomain Data
+    Internet subdomain.
 
-    Data object of subdomain data type.
-
+    :property string type: Type definition. Always present and has a value of
+                           :code:`subdomain`.
     :property string name: Name of a subdomain. Always present.
 
 Example:
@@ -144,7 +221,5 @@ Example:
 
     {
         "type": "subdomain",
-        "data": {
-            "name": "foo.example.com"
-        }
+        "name": "foo.example.com"
     }
